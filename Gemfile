@@ -21,6 +21,9 @@ gem 'newrelic_rpm'
 gem 'rack-ssl-enforcer'
 gem 'dotenv-rails'
 
+# FIXME: remove after migrating
+gem 'protected_attributes'
+
 group :development do
   gem 'pry'
   gem 'pry-rails'

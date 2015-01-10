@@ -183,6 +183,8 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    protected_attributes (1.0.8)
+      activemodel (>= 4.0.1, < 5.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -309,6 +311,7 @@ DEPENDENCIES
   paul_revere
   pg
   poltergeist
+  protected_attributes
   pry
   pry-rails
   pry-remote
