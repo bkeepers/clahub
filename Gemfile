@@ -8,7 +8,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'thin'
 gem 'bootstrap-sass', "~> 2.0"
-gem 'sass', "~> 3.2.0"
+gem 'sass'
 gem 'chosen-rails'
 gem 'omniauth'
 gem 'omniauth-github'
