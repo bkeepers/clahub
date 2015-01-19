@@ -18,7 +18,11 @@ class FieldEntry < ActiveRecord::Base
     when 'text', 'string'
       validate_value_with ActiveModel::Validations::PresenceValidator
     when 'agree'
-      validate_value_with ActiveModel::Validations::AcceptanceValidator, :accept => "I AGREE", allow_nil: false, message: "must be exactly I AGREE"
+      validate_value_with ActiveModel::Validations::AcceptanceValidator,
+        class: self.class,
+        accept: "I AGREE",
+        allow_nil: false,
+        message: "must be exactly I AGREE"
     else
       raise "Don't know how to validate FieldEntry for field type #{agreement_field.field.data_type}"
     end
