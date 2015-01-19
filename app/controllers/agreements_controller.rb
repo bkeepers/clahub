@@ -11,10 +11,7 @@ class AgreementsController < ApplicationController
   end
 
   def create
-    @agreement = current_user.agreements.new(params[:agreement].slice(:text, :agreement_fields_attributes))
-    if params[:agreement]
-      @agreement.user_name, @agreement.repo_name = params[:agreement][:user_name_repo_name].split('/')
-    end
+    @agreement = current_user.agreements.new(agreement_params)
 
     if @agreement.save
       @agreement.create_github_repo_hook
@@ -62,6 +59,12 @@ class AgreementsController < ApplicationController
   end
 
   private
+
+  def agreement_params
+    params.require(:agreement).permit(
+      :text, :agreement_fields_attributes, :user_name_repo_name
+    )
+  end
 
   def repos_for_current_user
     DevModeCache.cache("repos-for-#{current_user.uid}") do

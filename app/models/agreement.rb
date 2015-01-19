@@ -68,6 +68,10 @@ class Agreement < ActiveRecord::Base
     agreement_fields.enabled
   end
 
+  def user_name_repo_name=(name)
+    self.user_name, self.repo_name = name.split('/')
+  end
+
   private
 
   def one_agreement_per_user_repo
